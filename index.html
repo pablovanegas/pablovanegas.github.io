@@ -173,7 +173,8 @@
                 <a href="#stack" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">STACK TECNOLÓGICO</a>
                 <a href="#formacion" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">FORMACIÓN</a>
                 <a href="#contacto" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">CONTACTO</a>
-                <a href="hdv.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv text-sm ml-3">
+                <!-- CORRECCIÓN: Se usa rel="noopener noreferrer" por seguridad al abrir enlaces en nuevas pestañas. -->
+                <a href="assets/docs/hdv.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv text-sm ml-3">
                     <i class="fas fa-file-arrow-down mr-2"></i>VER CV
                 </a>
             </nav>
@@ -194,7 +195,13 @@
     <main>
         <section id="inicio" class="min-h-screen flex items-center hero-bg text-white fade-in-section py-20 md:py-0">
             <div class="container mx-auto px-6 text-center">
-                <img src="https://media.licdn.com/dms/image/D4E03AQF_6_5q5Xf2YA/profile-displayphoto-shrink_400_400/0/1716934176467?e=1723075200&v=beta&t=W6P7sJj7g2V7zJ_lR1tZ3Yq_K_O_q9U9v_Z-Q9eE7_A" alt="Juan Pablo Vanegas Moreno" class="w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-[var(--accent-blue)] mx-auto mb-8 shadow-2xl">
+                <!-- CORRECCIÓN: Ruta de imagen cambiada a una local para mayor fiabilidad. 
+                     Asegúrate de tener la imagen en la carpeta 'assets/images/'.
+                     Se añade un fallback por si la imagen no carga. -->
+                <img src="assets/images/data_datos_science_analysis_SQL_python_DevOps.jpg" 
+                     alt="Juan Pablo Vanegas Moreno" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/200x200/161B22/A5F3FC?text=JPVM';"
+                     class="w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-[var(--accent-blue)] mx-auto mb-8 shadow-2xl">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-3">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-cyan)]">Juan Pablo Vanegas Moreno</span>
                 </h1>
@@ -205,7 +212,8 @@
                     <a href="https://www.linkedin.com/in/juan-pablo-vanegas-moreno/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-[var(--text-secondary-dark)] hover:text-[var(--accent-blue)] transition-colors text-3xl"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/pablovanegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-[var(--text-secondary-dark)] hover:text-[var(--accent-blue)] transition-colors text-3xl"><i class="fab fa-github"></i></a>
                 </div>
-                <a href="#proyectos" class="nav-link btn-primary text-lg shadow-lg">
+                <!-- CORRECCIÓN: Se quita la clase 'nav-link' para que no se comporte como un link de navegación. -->
+                <a href="#proyectos" class="btn-primary text-lg shadow-lg">
                     <i class="fas fa-rocket mr-2"></i>Explorar Proyectos
                 </a>
             </div>
@@ -381,7 +389,7 @@
                 <div class="max-w-lg mx-auto glassmorphism-card p-8 md:p-10 rounded-xl">
                     <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
                         
-                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="access_key" value="bffb2751-c4f9-4cd7-abb6-fb7e86d4ad59">
                         <input type="hidden" name="subject" value="Nuevo Mensaje desde tu Portafolio">
                         <input type="hidden" name="from_name" value="Portafolio Web JPVM">
                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
@@ -464,15 +472,13 @@
             function setActiveNavLink() {
                 let currentSectionId = 'inicio'; // Default to 'inicio'
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (window.scrollY >= sectionTop - headerHeight - 150) {
+                    if (window.scrollY >= section.offsetTop - headerHeight - 150) {
                         currentSectionId = section.getAttribute('id');
                     }
                 });
                 allNavLinks.forEach(link => {
                     link.classList.remove('active');
-                    // Special case for logo
-                    if(link.href.endsWith(`#${currentSectionId}`)){
+                    if(link.getAttribute('href') === `#${currentSectionId}`){
                        link.classList.add('active');
                     }
                 });
@@ -502,7 +508,7 @@
                     const json = JSON.stringify(object);
                     
                     formResult.style.display = 'block'; 
-                    formResult.innerHTML = "Enviando...";
+                    formResult.innerHTML = "<span class='text-gray-400'>Enviando...</span>";
 
                     fetch('https://api.web3forms.com/submit', {
                             method: 'POST',
@@ -515,7 +521,7 @@
                         .then(async (response) => {
                             let jsonResponse = await response.json();
                             if (response.status == 200) {
-                                formResult.innerHTML = `<span class='text-green-400'>${jsonResponse.message || 'Mensaje enviado con éxito.'}</span>`;
+                                formResult.innerHTML = `<span class='text-green-400'>${jsonResponse.message || '¡Mensaje enviado con éxito!'}</span>`;
                             } else {
                                 console.log(response);
                                 formResult.innerHTML = `<span class='text-red-400'>${jsonResponse.message || 'Error al enviar el mensaje.'}</span>`;
@@ -528,7 +534,7 @@
                         .then(function() {
                             form.reset();
                             setTimeout(() => {
-                                formResult.style.display = "none";
+                                formResult.innerHTML = '';
                             }, 5000);
                         });
                 });
