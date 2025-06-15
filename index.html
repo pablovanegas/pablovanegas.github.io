@@ -47,6 +47,8 @@
             font-family: 'Roboto', sans-serif;
             background-color: var(--bg-dark-primary);
             color: var(--text-primary-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         h1, h2, h3, h4, h5, h6, .font-mono {
             font-family: 'Roboto Mono', monospace;
@@ -163,7 +165,7 @@
 
     <header id="header" class="bg-opacity-80 backdrop-blur-md sticky top-0 z-50 border-b border-[var(--border-dark)] shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#inicio" class="text-3xl font-bold font-mono text-[var(--accent-blue)] hover:text-[var(--accent-cyan)] transition-colors duration-300">JPVM_</a>
+            <a href="#inicio" class="nav-link text-3xl font-bold font-mono text-[var(--accent-blue)] hover:text-[var(--accent-cyan)] transition-colors duration-300">JPVM_</a>
             <nav class="hidden md:flex items-center space-x-3">
                 <a href="#inicio" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">INICIO</a>
                 <a href="#perfil" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">PERFIL</a>
@@ -171,7 +173,7 @@
                 <a href="#stack" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">STACK TECNOLÓGICO</a>
                 <a href="#formacion" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">FORMACIÓN</a>
                 <a href="#contacto" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">CONTACTO</a>
-                <a href="hdv.pdf" target="_blank" class="btn-cv text-sm ml-3">
+                <a href="hdv.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv text-sm ml-3">
                     <i class="fas fa-file-arrow-down mr-2"></i>VER CV
                 </a>
             </nav>
@@ -180,19 +182,19 @@
             </button>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-[var(--bg-dark-secondary)] border-t border-[var(--border-dark)]">
-            <a href="#inicio" class="block nav-link text-center px-4 py-3 text-base">INICIO</a>
-            <a href="#perfil" class="block nav-link text-center px-4 py-3 text-base">PERFIL</a>
-            <a href="#proyectos" class="block nav-link text-center px-4 py-3 text-base">CASOS DE ESTUDIO</a>
-            <a href="#stack" class="block nav-link text-center px-4 py-3 text-base">STACK TECNOLÓGICO</a>
-            <a href="#formacion" class="block nav-link text-center px-4 py-3 text-base">FORMACIÓN</a>
-            <a href="#contacto" class="block nav-link text-center px-4 py-3 text-base">CONTACTO</a>
+            <a href="#inicio" class="nav-link block text-center px-4 py-3 text-base">INICIO</a>
+            <a href="#perfil" class="nav-link block text-center px-4 py-3 text-base">PERFIL</a>
+            <a href="#proyectos" class="nav-link block text-center px-4 py-3 text-base">CASOS DE ESTUDIO</a>
+            <a href="#stack" class="nav-link block text-center px-4 py-3 text-base">STACK TECNOLÓGICO</a>
+            <a href="#formacion" class="nav-link block text-center px-4 py-3 text-base">FORMACIÓN</a>
+            <a href="#contacto" class="nav-link block text-center px-4 py-3 text-base">CONTACTO</a>
         </div>
     </header>
 
     <main>
         <section id="inicio" class="min-h-screen flex items-center hero-bg text-white fade-in-section py-20 md:py-0">
             <div class="container mx-auto px-6 text-center">
-                <img src="assets/images/data_datos_science_analysis_SQL_python_DevOps.jpg" alt="Foto de perfil de Juan Pablo Vanegas Moreno" class="mx-auto rounded-full w-40 h-40 object-cover mb-6">
+                <img src="https://media.licdn.com/dms/image/D4E03AQF_6_5q5Xf2YA/profile-displayphoto-shrink_400_400/0/1716934176467?e=1723075200&v=beta&t=W6P7sJj7g2V7zJ_lR1tZ3Yq_K_O_q9U9v_Z-Q9eE7_A" alt="Juan Pablo Vanegas Moreno" class="w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-[var(--accent-blue)] mx-auto mb-8 shadow-2xl">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-3">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-cyan)]">Juan Pablo Vanegas Moreno</span>
                 </h1>
@@ -203,7 +205,7 @@
                     <a href="https://www.linkedin.com/in/juan-pablo-vanegas-moreno/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-[var(--text-secondary-dark)] hover:text-[var(--accent-blue)] transition-colors text-3xl"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/pablovanegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-[var(--text-secondary-dark)] hover:text-[var(--accent-blue)] transition-colors text-3xl"><i class="fab fa-github"></i></a>
                 </div>
-                <a href="#proyectos" class="btn-primary text-lg shadow-lg">
+                <a href="#proyectos" class="nav-link btn-primary text-lg shadow-lg">
                     <i class="fas fa-rocket mr-2"></i>Explorar Proyectos
                 </a>
             </div>
@@ -379,7 +381,7 @@
                 <div class="max-w-lg mx-auto glassmorphism-card p-8 md:p-10 rounded-xl">
                     <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
                         
-                        <input type="hidden" name="3ad3915b-a73f-443f-a9fc-e19225b314cc" value="bffb2751-c4f9-4cd7-abb6-fb7e86d4ad5"> 
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                         <input type="hidden" name="subject" value="Nuevo Mensaje desde tu Portafolio">
                         <input type="hidden" name="from_name" value="Portafolio Web JPVM">
                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
@@ -437,7 +439,7 @@
             const header = document.getElementById('header');
             const headerHeight = header.offsetHeight;
             const allNavLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section[id]');
+            const sections = document.querySelectorAll('main > section[id]');
             
             allNavLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -460,22 +462,24 @@
             });
 
             function setActiveNavLink() {
-                let currentSectionId = '';
+                let currentSectionId = 'inicio'; // Default to 'inicio'
                 sections.forEach(section => {
-                    if (window.scrollY >= section.offsetTop - headerHeight - 150) {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - headerHeight - 150) {
                         currentSectionId = section.getAttribute('id');
                     }
                 });
                 allNavLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSectionId}`) {
-                        link.classList.add('active');
+                    // Special case for logo
+                    if(link.href.endsWith(`#${currentSectionId}`)){
+                       link.classList.add('active');
                     }
                 });
             }
 
             // Intersection Observer for Fade-In Animation
-            const fadeInObserver = new IntersectionObserver((entries, observer) => {
+            const fadeInObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
@@ -490,44 +494,45 @@
             // Form Submission Handler
             const form = document.getElementById('contact-form');
             const formResult = document.getElementById('form-result');
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const formData = new FormData(form);
-                const object = Object.fromEntries(formData);
-                const json = JSON.stringify(object);
-                // Make sure the result div is visible when submitting
-                formResult.style.display = 'block'; 
-                formResult.innerHTML = "Enviando...";
+            if(form){
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+                    
+                    formResult.style.display = 'block'; 
+                    formResult.innerHTML = "Enviando...";
 
-                fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    })
-                    .then(async (response) => {
-                        let jsonResponse = await response.json();
-                        if (response.status == 200) {
-                            formResult.innerHTML = `<span class='text-green-400'>${jsonResponse.message}</span>`;
-                        } else {
-                            console.log(response);
-                            formResult.innerHTML = `<span class='text-red-400'>${jsonResponse.message}</span>`;
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        formResult.innerHTML = "<span class='text-red-400'>Algo salió mal. Intenta de nuevo.</span>";
-                    })
-                    .then(function() {
-                        form.reset();
-                        setTimeout(() => {
-                            // Hide the result message after 3 seconds
-                            formResult.style.display = "none";
-                        }, 3000);
-                    });
-            });
+                    fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: json
+                        })
+                        .then(async (response) => {
+                            let jsonResponse = await response.json();
+                            if (response.status == 200) {
+                                formResult.innerHTML = `<span class='text-green-400'>${jsonResponse.message || 'Mensaje enviado con éxito.'}</span>`;
+                            } else {
+                                console.log(response);
+                                formResult.innerHTML = `<span class='text-red-400'>${jsonResponse.message || 'Error al enviar el mensaje.'}</span>`;
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            formResult.innerHTML = "<span class='text-red-400'>Algo salió mal. Intenta de nuevo.</span>";
+                        })
+                        .then(function() {
+                            form.reset();
+                            setTimeout(() => {
+                                formResult.style.display = "none";
+                            }, 5000);
+                        });
+                });
+            }
 
             // Initial Calls & Footer Year
             window.addEventListener('scroll', setActiveNavLink);
