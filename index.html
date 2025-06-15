@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Juan Pablo Vanegas Moreno">
+    <meta name="description" content="Portafolio de Juan Pablo Vanegas Moreno, Científico de Datos especializado en MLOps, modelado predictivo y despliegue de soluciones de IA en la nube.">
+    <meta name="keywords" content="Juan Pablo Vanegas Moreno, Científico de Datos, Data Scientist, MLOps, Machine Learning, Deep Learning, Python, FastAPI, Docker, GCP, AWS, CI/CD, Automatización, Series de Tiempo, NLP">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pablovanegas.github.io/Portafolio_JP/">
+    <meta property="og:title" content="Juan Pablo Vanegas Moreno - Científico de Datos | MLOps & IA">
+    <meta property="og:description" content="Portafolio de Juan Pablo Vanegas, un Científico de Datos enfocado en construir y desplegar soluciones de IA escalables.">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/D4E03AQF_6_5q5Xf2YA/profile-displayphoto-shrink_400_400/0/1716934176467?e=1723075200&v=beta&t=W6P7sJj7g2V7zJ_lR1tZ3Yq_K_O_q9U9v_Z-Q9eE7_A">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pablovanegas.github.io/Portafolio_JP/">
+    <meta property="twitter:title" content="Juan Pablo Vanegas Moreno - Científico de Datos | MLOps & IA">
+    <meta property="twitter:description" content="Portafolio de Juan Pablo Vanegas, un Científico de Datos enfocado en construir y desplegar soluciones de IA escalables.">
+    <meta property="twitter:image" content="https://media.licdn.com/dms/image/D4E03AQF_6_5q5Xf2YA/profile-displayphoto-shrink_400_400/0/1716934176467?e=1723075200&v=beta&t=W6P7sJj7g2V7zJ_lR1tZ3Yq_K_O_q9U9v_Z-Q9eE7_A">
+    <title>Juan Pablo Vanegas Moreno - Científico de Datos | MLOps & IA</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark-primary: #0D1117;
+            --bg-dark-secondary: #161B22;
+            --border-dark: #30363D;
+            --text-primary-dark: #C9D1D9;
+            --text-secondary-dark: #8B949E;
+            --accent-blue: #38BDF8;
+            --accent-cyan: #A5F3FC;
+            --alice-blue-sutil: #F0F8FF;
+        }
+
+        @keyframes subtleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark-primary);
+            color: var(--text-primary-dark);
+        }
+        h1, h2, h3, h4, h5, h6, .font-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .nav-link.active { color: var(--accent-blue); font-weight: 500; }
+        .nav-link:hover { color: var(--accent-cyan); }
+        .hero-bg {
+            background: linear-gradient(270deg, var(--bg-dark-primary), var(--bg-dark-secondary), #0a2238);
+            background-size: 600% 600%;
+            animation: subtleGradient 25s ease infinite;
+        }
+        .glassmorphism-card {
+            background: rgba(22, 27, 34, 0.6);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid var(--border-dark);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .case-study-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .case-study-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+            border-color: var(--accent-blue);
+        }
+        .section-title {
+            color: var(--accent-blue);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+        .skill-badge {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--bg-dark-secondary);
+            color: var(--accent-cyan);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.3rem;
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--border-dark);
+            transition: all 0.3s ease;
+        }
+        .skill-badge i { margin-right: 0.5em; }
+        .skill-badge:hover {
+            background-color: var(--border-dark);
+            color: var(--alice-blue-sutil);
+            transform: translateY(-2px);
+        }
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: var(--bg-dark-primary);
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            padding: 0.85rem 1.7rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+        .btn-cv {
+            font-family: 'Roboto Mono', monospace;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+        .btn-cv:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark-primary);
+        }
+        .case-study-card .problem, .case-study-card .solution, .case-study-card .impact {
+            margin-bottom: 1rem;
+        }
+        .case-study-card h4 {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        .form-input, .form-textarea {
+            background-color: var(--bg-dark-secondary);
+            color: var(--text-primary-dark);
+            border: 1px solid var(--border-dark);
+            border-radius: 0.375rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-opacity-80 backdrop-blur-md sticky top-0 z-50 border-b border-[var(--border-dark)] shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-3xl font-bold font-mono text-[var(--accent-blue)] hover:text-[var(--accent-cyan)] transition-colors duration-300">JPVM_</a>
+            <nav class="hidden md:flex items-center space-x-3">
+                <a href="#inicio" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">INICIO</a>
+                <a href="#perfil" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">PERFIL</a>
+                <a href="#proyectos" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">CASOS DE ESTUDIO</a>
+                <a href="#stack" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">STACK TECNOLÓGICO</a>
+                <a href="#formacion" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">FORMACIÓN</a>
+                <a href="#contacto" class="nav-link text-[var(--text-secondary-dark)] px-3 py-2 rounded-md text-sm font-medium">CONTACTO</a>
+                <a href="hdv.pdf" target="_blank" class="btn-cv text-sm ml-3">
+                    <i class="fas fa-file-arrow-down mr-2"></i>VER CV
+                </a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-[var(--text-secondary-dark)] focus:outline-none text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-[var(--bg-dark-secondary)] border-t border-[var(--border-dark)]">
+            <a href="#inicio" class="block nav-link text-center px-4 py-3 text-base">INICIO</a>
+            <a href="#perfil" class="block nav-link text-center px-4 py-3 text-base">PERFIL</a>
+            <a href="#proyectos" class="block nav-link text-center px-4 py-3 text-base">CASOS DE ESTUDIO</a>
+            <a href="#stack" class="block nav-link text-center px-4 py-3 text-base">STACK TECNOLÓGICO</a>
+            <a href="#formacion" class="block nav-link text-center px-4 py-3 text-base">FORMACIÓN</a>
+            <a href="#contacto" class="block nav-link text-center px-4 py-3 text-base">CONTACTO</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="min-h-screen flex items-center hero-bg text-white fade-in-section py-20 md:py-0">
+            <div class="container mx-auto px-6 text-center">
+                <img src="assets/images/data_datos_science_analysis_SQL_python_DevOps.jpg" alt="Foto de perfil de Juan Pablo Vanegas Moreno" class="mx-auto rounded-full w-40 h-40 object-cover mb-6">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-3">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-cyan)]">Juan Pablo Vanegas Moreno</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 font-mono font-light max-w-3xl mx-auto text-[var(--text-secondary-dark)]">
+                    Científico de Datos <span class="text-[var(--accent-cyan)]">|</span> MLOps <span class="text-[var(--accent-cyan)]">|</span> Soluciones de IA
+                </p>
+                <div class="flex justify-center space-x-6 mb-12">
+                    <a href="https://www.linkedin.com/in/juan-pablo-vanegas-moreno/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-[var(--text-secondary-dark)] hover:text-[var(--accent-blue)] transition-colors text-3xl"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/pablovanegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-[var(--text-secondary-dark)] hover:text-[var(--accent-blue)] transition-colors text-3xl"><i class="fab fa-github"></i></a>
+                </div>
+                <a href="#proyectos" class="btn-primary text-lg shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i>Explorar Proyectos
+                </a>
+            </div>
+        </section>
+
+        <section id="perfil" class="py-16 md:py-24 bg-[var(--bg-dark-secondary)] fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-lg text-center leading-relaxed">
+                    <p>
+                        Científico de Datos con especialización en el ciclo de vida completo de modelos predictivos. Mi experiencia abarca desde la <strong class="font-medium text-[var(--accent-cyan)]">ingeniería de características</strong> y el <strong class="font-medium text-[var(--accent-cyan)]">modelado avanzado</strong> (Machine Learning, Deep Learning) hasta el despliegue de <strong class="font-medium text-[var(--accent-cyan)]">APIs RESTful</strong> y la automatización de <strong class="font-medium text-[var(--accent-cyan)]">pipelines de datos (MLOps)</strong>. Con un enfoque práctico en la creación de soluciones escalables y robustas, busco aplicar mi conocimiento técnico para construir y optimizar sistemas que generen un impacto medible en el negocio, especialmente en entornos de nube como <strong class="font-medium text-[var(--accent-cyan)]">GCP y AWS</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="py-16 md:py-24 bg-[var(--bg-dark-primary)] fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title">Casos de Estudio</h2>
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
+                    
+                    <div class="case-study-card glassmorphism-card p-7 rounded-xl">
+                        <div>
+                            <div class="mb-5 text-[var(--accent-blue)] text-4xl"><i class="fas fa-comments"></i></div>
+                            <h3 class="text-2xl font-semibold mb-4 text-[var(--alice-blue-sutil)]">Análisis de Sentimiento y Tópicos (NLP)</h3>
+                            <div class="problem">
+                                <h4>El Reto</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Extraer insights accionables a partir de miles de reviews de texto no estructurado para entender las preocupaciones clave y el sentimiento general de los usuarios de una plataforma.</p>
+                            </div>
+                            <div class="solution">
+                                <h4>La Solución</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Desarrollé un pipeline de NLP en Python que limpia, procesa y analiza el texto. Apliqué Topic Modeling (LDA) para descubrir temas ocultos y análisis de sentimiento para cuantificar la opinión.</p>
+                            </div>
+                            <div class="impact">
+                                <h4>El Impacto</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Se entregó un dashboard interactivo que visualiza los principales tópicos de queja (ej. "buffering", "precio") y el sentimiento asociado, proveyendo una guía clara para la priorización de mejoras del producto.</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="mb-5">
+                                <span class="skill-badge"><i class="fas fa-brain"></i>NLP</span>
+                                <span class="skill-badge"><i class="fas fa-cogs"></i>Gensim</span>
+                                <span class="skill-badge"><i class="fas fa-tags"></i>Topic Modeling</span>
+                            </div>
+                            <a href="https://github.com/pablovanegas/netflix_text_analysis" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center block">VER NOTEBOOK</a>
+                        </div>
+                    </div>
+
+                    <div class="case-study-card glassmorphism-card p-7 rounded-xl">
+                        <div>
+                            <div class="mb-5 text-[var(--accent-blue)] text-4xl"><i class="fas fa-cogs"></i></div>
+                            <h3 class="text-2xl font-semibold mb-4 text-[var(--alice-blue-sutil)]">Servicio de Predicción con Orquestación</h3>
+                             <div class="problem">
+                                <h4>El Reto</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Construir un servicio de predicción de alto rendimiento que pudiera manejar tareas pesadas (como el re-entrenamiento) de forma asíncrona y fuera fácil de gestionar en un entorno de desarrollo multi-servicio.</p>
+                            </div>
+                            <div class="solution">
+                                <h4>La Solución</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Diseñé una arquitectura con FastAPI para la API, Celery para la gestión de tareas asíncronas en background y Docker Compose para orquestar los servicios (API, worker, broker) de forma unificada.</p>
+                            </div>
+                             <div class="impact">
+                                <h4>El Impacto</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">La API mantiene una latencia baja para las predicciones mientras los trabajos de entrenamiento se ejecutan de forma aislada, creando un sistema robusto, escalable y listo para ser migrado a Kubernetes.</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                             <div class="mb-5">
+                                 <span class="skill-badge"><i class="fas fa-network-wired"></i>Deep Learning</span>
+                                 <span class="skill-badge"><i class="fas fa-tools"></i>Feature Engineering</span>
+                                 <span class="skill-badge"><i class="fas fa-server"></i>Arquitectura Modular</span>
+                                 <span class="skill-badge"><i class="fas fa-server"></i>FastAPI</span>
+                                 <span class="skill-badge"><i class="fab fa-docker"></i>Docker Compose</span>
+                                 <span class="skill-badge"><i class="fas fa-tasks"></i>Celery</span>
+                             </div>
+                            <a href="https://github.com/dapuentes/StockTimePredictor" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center block">VER ARQUITECTURA</a>
+                        </div>
+                    </div>
+
+                    <div class="case-study-card glassmorphism-card p-7 rounded-xl">
+                        <div>
+                            <div class="mb-5 text-[var(--accent-blue)] text-4xl"><i class="fas fa-chart-pie"></i></div>
+                            <h3 class="text-2xl font-semibold mb-4 text-[var(--alice-blue-sutil)]">Dashboard Interactivo para Business Intelligence</h3>
+                            <div class="problem">
+                                <h4>El Reto</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Traducir datos complejos de negocio en insights accionables y fácilmente consumibles por stakeholders no técnicos para agilizar la toma de decisiones estratégicas.</p>
+                            </div>
+                            <div class="solution">
+                                <h4>La Solución</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Desarrollé un dashboard interactivo en R Shiny y Power BI, enfocado en el storytelling de datos, permitiendo la exploración de KPIs y la simulación de escenarios en tiempo real.</p>
+                            </div>
+                            <div class="impact">
+                                <h4>El Impacto</h4>
+                                <p class="text-[var(--text-secondary-dark)] text-sm">Se empoderó a los equipos de negocio con una herramienta de auto-servicio que redujo la dependencia del equipo de datos y mejoró la comprensión de las métricas clave.</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="mb-5">
+                                <span class="skill-badge"><i class="fab fa-r-project"></i>R Shiny</span>
+                                <span class="skill-badge"><i class="fas fa-chart-bar"></i>Power BI</span>
+                                <span class="skill-badge"><i class="fas fa-bullseye"></i>KPI's & Storytelling</span>
+                            </div>
+                            <a href="https://github.com/pablovanegas/App_Shiny_Acidentes" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center block">EXPLORAR CÓDIGO</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-center fade-in-section">
+                    <h3 class="text-2xl font-semibold text-[var(--alice-blue-sutil)] mb-4">Actualmente Explorando</h3>
+                    <p class="max-w-2xl mx-auto text-[var(--text-secondary-dark)]">
+                        Actualmente estoy profundizando mis conocimientos en el ecosistema de LLMs (LangChain, LlamaIndex) y en la orquestación de pipelines a gran escala con Kubernetes (GKE/EKS) para fortalecer mis capacidades en la creación de soluciones de IA de nivel empresarial.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stack" class="py-16 md:py-24 bg-[var(--bg-dark-secondary)] fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title">Stack Tecnológico y Competencias</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-xl font-semibold text-[var(--accent-cyan)] mb-6 text-center"><i class="fas fa-cloud mr-2"></i>Cloud & MLOps</h3>
+                        <div class="flex flex-wrap justify-center">
+                            <span class="skill-badge">AWS (S3, Lambda)</span><span class="skill-badge">GCP (BigQuery, Storage)</span><span class="skill-badge">Docker</span><span class="skill-badge">Kubernetes (Básico)</span><span class="skill-badge">CI/CD (Actions)</span><span class="skill-badge">Airflow (Básico)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-[var(--accent-cyan)] mb-6 text-center"><i class="fas fa-brain mr-2"></i>Modelado y Análisis</h3>
+                        <div class="flex flex-wrap justify-center">
+                            <span class="skill-badge">Machine Learning</span><span class="skill-badge">Deep Learning</span><span class="skill-badge">Series Temporales</span><span class="skill-badge">Ingeniería de Características</span><span class="skill-badge">Inferencia Bayesiana</span>
+                        </div>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-[var(--accent-cyan)] mb-6 text-center"><i class="fas fa-code mr-2"></i>Lenguajes y Bases de Datos</h3>
+                        <div class="flex flex-wrap justify-center">
+                            <span class="skill-badge">Python (Avanzado)</span><span class="skill-badge">R (Avanzado)</span><span class="skill-badge">SQL (Avanzado)</span><span class="skill-badge">NoSQL (Básico)</span><span class="skill-badge">FastAPI</span><span class="skill-badge">Postman</span><span class="skill-badge">Streamlit</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-[var(--accent-cyan)] mb-6 text-center"><i class="fas fa-chart-line mr-2"></i>Visualización y BI</h3>
+                        <div class="flex flex-wrap justify-center">
+                            <span class="skill-badge">Power BI</span><span class="skill-badge">Tableau</span><span class="skill-badge">Shiny</span><span class="skill-badge">Matplotlib / Plotly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formacion" class="py-16 md:py-24 bg-[var(--bg-dark-primary)] fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center section-title">Formación y Contribuciones</h2>
+                <div class="max-w-3xl mx-auto space-y-8">
+                     <div class="academic-item p-6 rounded-lg transition-all duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold text-[var(--accent-blue)] mb-2"><i class="fas fa-graduation-cap mr-3"></i>Educación Formal</h3>
+                        <p class="text-[var(--text-primary-dark)]"><strong>Maestría en Estadística Aplicada</strong> - Universidad Nacional de Colombia (2023)</p>
+                         <p class="text-[var(--text-primary-dark)]"><strong>BootCamp en Ciencia de Datos</strong> - Betek (2025)</p>
+                        <p class="text-[var(--text-primary-dark)]"><strong>Pregrado en Estadística</strong> - Universidad Nacional de Colombia (2025)</p>
+                    </div>
+                    <div class="academic-item p-6 rounded-lg transition-all duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold text-[var(--accent-blue)] mb-2"><i class="fas fa-microphone-alt mr-3"></i>Ponencias y Liderazgo</h3>
+                        <p class="text-[var(--text-primary-dark)]"><strong>Ponente</strong> - 33° Simposio Internacional de Estadística (2024)</p>
+                        <p class="text-[var(--text-secondary-dark)] text-sm">Presenté aplicaciones en la nube con R/Shiny para automatización de scraping y análisis de datos.</p>
+                        <p class="text-[var(--text-primary-dark)] mt-2"><strong>Director de Logística</strong> - Encuentro Internacional de Semilleros de Investigación (2023)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-16 md:py-24 bg-[var(--bg-dark-secondary)] fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center section-title">Conectemos</h2>
+                <p class="text-center text-lg text-[var(--text-secondary-dark)] mb-10 max-w-xl mx-auto">
+                    ¿Tienes un proyecto en mente o una oportunidad que te gustaría discutir? Me encantaría saber de ti.
+                </p>
+                <div class="max-w-lg mx-auto glassmorphism-card p-8 md:p-10 rounded-xl">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                        
+                        <input type="hidden" name="3ad3915b-a73f-443f-a9fc-e19225b314cc" value="YOUR_ACCESS_KEY_HERE"> // Reemplaza con tu clave de acceso de Web3Forms COMENTARIO
+                        <input type="hidden" name="subject" value="Nuevo Mensaje desde tu Portafolio">
+                        <input type="hidden" name="from_name" value="Portafolio Web JPVM">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="mb-5">
+                            <label for="name" class="block mb-2 text-sm font-medium text-[var(--text-secondary-dark)]">Nombre</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="block mb-2 text-sm font-medium text-[var(--text-secondary-dark)]">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="tu.email@ejemplo.com" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="message" class="block mb-2 text-sm font-medium text-[var(--text-secondary-dark)]">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="form-textarea" placeholder="Hola, Juan Pablo. Me gustaría..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn-primary w-full">
+                                <i class="fas fa-paper-plane mr-2"></i>Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                    <div id="form-result" class="text-center mt-4"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[var(--bg-dark-primary)] text-[var(--text-secondary-dark)] text-center py-10 border-t border-[var(--border-dark)]">
+         <div class="mb-4 flex justify-center space-x-6">
+            <a href="https://www.linkedin.com/in/juan-pablo-vanegas-moreno/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-[var(--accent-blue)] transition-colors"><i class="fab fa-linkedin-in fa-lg"></i></a>
+            <a href="https://github.com/pablovanegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-[var(--accent-blue)] transition-colors"><i class="fab fa-github fa-lg"></i></a>
+            <a href="mailto:papablomoreno2001@gmail.com" aria-label="Email" class="hover:text-[var(--accent-blue)] transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
+        </div>
+        <p class="text-sm font-mono mb-2">
+            Diseñado y Desarrollado con <i class="fas fa-brain text-[var(--accent-cyan)]"></i> & <i class="fas fa-code text-[var(--accent-blue)]"></i> por Juan Pablo Vanegas Moreno.
+        </p>
+        <p class="text-xs">&copy; <span id="currentYear"></span> Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuIcon.classList.toggle('fa-bars');
+                mobileMenuIcon.classList.toggle('fa-times');
+            });
+
+            // Smooth Scrolling & Active Nav Link
+            const header = document.getElementById('header');
+            const headerHeight = header.offsetHeight;
+            const allNavLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenuIcon.classList.remove('fa-times');
+                            mobileMenuIcon.classList.add('fa-bars');
+                        }
+                        const targetElement = document.getElementById(href.substring(1));
+                        if (targetElement) {
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerHeight;
+                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            function setActiveNavLink() {
+                let currentSectionId = '';
+                sections.forEach(section => {
+                    if (window.scrollY >= section.offsetTop - headerHeight - 150) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+                allNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Intersection Observer for Fade-In Animation
+            const fadeInObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                fadeInObserver.observe(section);
+            });
+            
+            // Form Submission Handler
+            const form = document.getElementById('contact-form');
+            const formResult = document.getElementById('form-result');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+                // Make sure the result div is visible when submitting
+                formResult.style.display = 'block'; 
+                formResult.innerHTML = "Enviando...";
+
+                fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let jsonResponse = await response.json();
+                        if (response.status == 200) {
+                            formResult.innerHTML = `<span class='text-green-400'>${jsonResponse.message}</span>`;
+                        } else {
+                            console.log(response);
+                            formResult.innerHTML = `<span class='text-red-400'>${jsonResponse.message}</span>`;
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        formResult.innerHTML = "<span class='text-red-400'>Algo salió mal. Intenta de nuevo.</span>";
+                    })
+                    .then(function() {
+                        form.reset();
+                        setTimeout(() => {
+                            // Hide the result message after 3 seconds
+                            formResult.style.display = "none";
+                        }, 3000);
+                    });
+            });
+
+            // Initial Calls & Footer Year
+            window.addEventListener('scroll', setActiveNavLink);
+            window.addEventListener('load', setActiveNavLink);
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
